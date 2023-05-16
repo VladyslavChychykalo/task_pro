@@ -1,0 +1,16 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  height: 68px;
+  width: 100%;
+  background-color: #161616;
+  padding: 20px 24px;
+}
+
+.headerTitle {
+  color: #fff;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: -0.02em;
+}

@@ -1,0 +1,22 @@
+.blockTitle {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin-bottom: 16px;
+  margin-top: 24px;
+}
+
+.listIcons {
+  display: flex;
+  gap: 11px;
+}
+
+.listIcons li {
+  cursor: pointer;
+}
+
+.activeIcon path {
+  stroke-opacity: 1;
+}

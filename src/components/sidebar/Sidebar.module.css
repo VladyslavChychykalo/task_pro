@@ -1,0 +1,84 @@
+.pretitle {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 8px;
+}
+
+.boardText {
+  color: #fff;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.02em;
+}
+
+.boardsLinksList {
+  margin-top: 40px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.boardsLinksList li {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  height: 61px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.boardsLinksList svg {
+  margin-right: 10px;
+}
+
+.activeLabelBoard {
+  position: relative;
+}
+
+.activeLabelBoard {
+  color: #fff;
+}
+
+.activeLabelBoard svg path {
+  stroke-opacity: 1;
+}
+
+.activeLabelBoard::after {
+  content: "";
+  position: absolute;
+  background: #1f1f1f;
+  opacity: 0.4;
+  top: 0;
+  border: 0;
+  height: 100%;
+  left: 0;
+  right: 0px;
+  z-index: -1;
+}
+
+.activeLabelBoard::before {
+  content: "";
+  width: 4px;
+  position: absolute;
+  background: #bedbb0;
+  border-radius: 4px 0px 0px 4px;
+  top: 0;
+  height: 100%;
+  right: 0;
+  z-index: 0;
+}
+
+.helpDescription {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.helpDescription span {
+  color: #bedbb0;
+}
