@@ -4,7 +4,8 @@ import { Routes, Route } from "react-router-dom";
 import Screens from "../components/screens/Screens";
 import Sidebar from "../components/sidebar/Sidebar";
 import Header from "../components/header/Header";
-import ModalBoard from "../components/modalBoard/ModalBoard";
+// import ModalBoard from "../components/modalBoard/ModalBoard";
+import ModalBoard from "../components/modal/modalBoard/ModalBoard";
 import { iconsBoard } from "../utils/mochas";
 
 const HomePage = () => {
@@ -34,8 +35,8 @@ const HomePage = () => {
     },
   ]);
 
-  // options - массив, каждый объект внутри массива это колонка.
   const [open, setOpen] = useState(false);
+  const [helpModalStatus, setHelpModalStatus] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -61,7 +62,7 @@ const HomePage = () => {
       ];
     });
   };
-  
+
   return (
     <div style={{ display: "flex" }}>
       <Sidebar boards={boards} onOpenModal={handleClickOpen} />
@@ -80,7 +81,6 @@ const HomePage = () => {
           })}
         </Routes>
       </main>
-
       <ModalBoard
         open={open}
         onCloseModal={handleClose}

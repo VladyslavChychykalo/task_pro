@@ -1,6 +1,12 @@
 import { TextField } from "@mui/material";
 
-const CustomInput = ({ value, onChange }) => {
+const CustomInput = ({
+  value,
+  onChange = () => null,
+  label = "",
+  multiline = false,
+  options = {},
+}) => {
   return (
     <TextField
       sx={{
@@ -39,14 +45,16 @@ const CustomInput = ({ value, onChange }) => {
       autoFocus
       margin="dense"
       id="title"
-      label="Title"
+      label={label}
       type="text"
       fullWidth
       variant="outlined"
+      multiline={multiline}
       value={value}
       onChange={(e) => {
         onChange(e.target.value);
       }}
+      {...options}
     />
   );
 };

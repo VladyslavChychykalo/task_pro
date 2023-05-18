@@ -1,4 +1,4 @@
-import { iconsBoard } from "../../../utils/mochas";
+import { iconsBoard } from "../../../../utils/mochas";
 import styles from "./ListOfIcons.module.css";
 
 const ListOfIcons = ({ setActiveIndex, activeIndex }) => {

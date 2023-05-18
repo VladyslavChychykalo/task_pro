@@ -4,7 +4,9 @@ import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import { IconButton } from "@mui/material";
 import Divider from "@mui/material/Divider";
-import needHelpImage from "../../assets/images/needHelpImage.png";
+import LogoBlock from "../logoBlock/LogoBlock";
+import HelpBlock from "./helpBlock/HelpBlock";
+
 import styles from "./Sidebar.module.css";
 
 const drawerWidth = 260;
@@ -35,6 +37,7 @@ export default function ClippedDrawer({ boards, onOpenModal }) {
         }}
       >
         <div style={{ padding: "0 24px" }}>
+          <LogoBlock />
           <p className={styles.pretitle}>My boards</p>
           <Divider sx={{ border: "1px solid rgba(255, 255, 255, 0.1)" }} />
           <Box
@@ -89,22 +92,7 @@ export default function ClippedDrawer({ boards, onOpenModal }) {
           })}
         </ul>
 
-        <div style={{ padding: "0 24px", marginTop: "auto" }}>
-          <div
-            style={{
-              backgroundColor: "#1F1F1F",
-              borderRadius: "8px",
-              padding: "20px",
-            }}
-          >
-            <img src={needHelpImage} alt="Help" />
-            <p className={styles.helpDescription}>
-              If you need help with
-              <span>{" " + "TaskPro" + " "}</span>, check out our support
-              resources or reach out to our customer support team.
-            </p>
-          </div>
-        </div>
+        <HelpBlock />
       </Box>
     </Drawer>
   );

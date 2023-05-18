@@ -70,15 +70,3 @@
   right: 0;
   z-index: 0;
 }
-
-.helpDescription {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: -0.02em;
-  color: #ffffff;
-}
-
-.helpDescription span {
-  color: #bedbb0;
-}
