@@ -3,6 +3,9 @@ import Modal from "../Modal";
 import CustomInput from "../../customInput/CustomInput";
 
 const ModalHelp = ({ open, onCloseModal }) => {
+//   const [email, setEmai] = useState("");
+//   const [titleBoard, setTitleBoard] = useState("");
+
   const reset = () => {
     onCloseModal();
   };

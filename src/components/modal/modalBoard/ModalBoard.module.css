@@ -1,0 +1,8 @@
+.buttonCreate svg {
+  width: 14px;
+  height: 14px;
+}
+
+.buttonCreate path {
+  stroke: #fff;
+}

@@ -1,11 +1,16 @@
 import { Button } from "@mui/material";
 
-const CustomButton = ({ children, disabled = false, onClick }) => {
+const CustomButton = ({
+  children,
+  disabled = false,
+  onClick,
+  styleOptions = {},
+}) => {
   return (
     <Button
       onClick={onClick}
       fullWidth
-      disabled={disabled}
+      // disabled={disabled}
       sx={{
         fontFamily: "Poppins, sans-serif",
         textTransform: "none",
@@ -23,9 +28,11 @@ const CustomButton = ({ children, disabled = false, onClick }) => {
         "&:hover": {
           background: "#BEDBB0",
         },
-        "&:disabled": {
-          background: "#cccccc",
-        },
+        // "&:disabled": {
+        //   // background: "#cccccc",
+        //   // filter: "grayscale(100%)",
+        // },
+        ...styleOptions,
       }}
     >
       {children}
