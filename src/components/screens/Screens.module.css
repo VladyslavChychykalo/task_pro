@@ -1,8 +1,33 @@
-.buttonCreate svg {
+.columnsWrapper {
+  display: flex;
+  gap: 18px;
+  overflow: scroll;
+}
+
+.columnTitleBlock {
+  background: #121212;
+  border-radius: 8px;
+  height: 56px;
+  min-width: 334px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.columnTitleBlock h4 {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.02em;
+}
+
+.buttonCreate2 svg {
   width: 14px;
   height: 14px;
 }
 
-.buttonCreate path {
-  stroke: #121212;
+.buttonCreate2 path {
+  stroke: #fff;
 }

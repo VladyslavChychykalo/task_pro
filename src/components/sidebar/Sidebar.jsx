@@ -4,13 +4,13 @@ import Drawer from "@mui/material/Drawer";
 import Divider from "@mui/material/Divider";
 import LogoBlock from "../logoBlock/LogoBlock";
 import HelpBlock from "./helpBlock/HelpBlock";
-import ButtonCreate from "../customButton/buttonCreate/ButtonCreate";
+import ModalBoard from "../modal/modalBoard/ModalBoard";
 
 import styles from "./Sidebar.module.css";
 
 const drawerWidth = 260;
 
-export default function ClippedDrawer({ boards, onOpenModal }) {
+export default function ClippedDrawer({ boards, handleBoard }) {
   const location = useLocation();
   const navigate = useNavigate();
   return (
@@ -51,7 +51,8 @@ export default function ClippedDrawer({ boards, onOpenModal }) {
             <p className={styles.boardText}>
               Create a <br /> new board
             </p>
-            <ButtonCreate onClick={onOpenModal} />
+
+            <ModalBoard handleBoard={handleBoard} />
           </Box>
           <Divider sx={{ border: "1px solid rgba(255, 255, 255, 0.1)" }} />
         </div>

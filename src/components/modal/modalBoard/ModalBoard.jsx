@@ -6,13 +6,14 @@ import ListOfIcons from "./listOfIcons/ListOfIcons";
 import Modal from "../Modal";
 import styles from "./ModalBoard.module.css";
 
-const ModalBoard = ({ open, onCloseModal, handleBoard }) => {
+const ModalBoard = ({ handleBoard }) => {
+  const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [titleBoard, setTitleBoard] = useState("");
 
   const reset = () => {
     setTitleBoard("");
-    onCloseModal();
+    setOpen(false);
     setActiveIndex(0);
   };
 
@@ -22,37 +23,45 @@ const ModalBoard = ({ open, onCloseModal, handleBoard }) => {
   };
 
   return (
-    <Modal title="New Board" open={open} reset={reset}>
-      <ul>
-        <li>
-          <CustomInput
-            label="Title"
-            value={titleBoard}
-            onChange={setTitleBoard}
-          />
-        </li>
-        <li>
-          <ListOfIcons
-            activeIndex={activeIndex}
-            setActiveIndex={setActiveIndex}
-          />
-        </li>
-      </ul>
+    <>
+      <ButtonCreate
+        onClick={() => {
+          setOpen(true);
+        }}
+      />
+      
+      <Modal title="New Board" open={open} reset={reset}>
+        <ul>
+          <li>
+            <CustomInput
+              label="Title"
+              value={titleBoard}
+              onChange={setTitleBoard}
+            />
+          </li>
+          <li>
+            <ListOfIcons
+              activeIndex={activeIndex}
+              setActiveIndex={setActiveIndex}
+            />
+          </li>
+        </ul>
 
-      <CustomButton onClick={handleManipulateBoard} disabled={!titleBoard}>
-        <ButtonCreate
-          stylesOptions={{
-            background: "#161616",
-            marginRight: "8px",
-            minWidth: "28px",
-            height: "28px",
-            padding: "0px",
-          }}
-          className={styles.buttonCreate}
-        />
-        Create
-      </CustomButton>
-    </Modal>
+        <CustomButton onClick={handleManipulateBoard} disabled={!titleBoard}>
+          <ButtonCreate
+            stylesOptions={{
+              background: "#161616",
+              marginRight: "8px",
+              minWidth: "28px",
+              height: "28px",
+              padding: "0px",
+            }}
+            className={styles.buttonCreate}
+          />
+          Create
+        </CustomButton>
+      </Modal>
+    </>
   );
 };
 

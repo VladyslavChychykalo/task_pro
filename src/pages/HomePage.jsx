@@ -4,8 +4,6 @@ import { Routes, Route } from "react-router-dom";
 import Screens from "../components/screens/Screens";
 import Sidebar from "../components/sidebar/Sidebar";
 import Header from "../components/header/Header";
-// import ModalBoard from "../components/modalBoard/ModalBoard";
-import ModalBoard from "../components/modal/modalBoard/ModalBoard";
 import { iconsBoard } from "../utils/mochas";
 
 const HomePage = () => {
@@ -14,7 +12,7 @@ const HomePage = () => {
       id: uuidv4(),
       title: "Test",
       icon: iconsBoard[0].icon,
-      filters: "none",
+      // filters: "none",
       background: "",
       columns: [
         {
@@ -35,17 +33,6 @@ const HomePage = () => {
     },
   ]);
 
-  const [open, setOpen] = useState(false);
-  const [helpModalStatus, setHelpModalStatus] = useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   const handleBoard = (data) => {
     const { title, iconIndex = 0 } = data;
     setBoards((prev) => {
@@ -65,10 +52,9 @@ const HomePage = () => {
 
   return (
     <div style={{ display: "flex" }}>
-      <Sidebar boards={boards} onOpenModal={handleClickOpen} />
-      <main style={{ width: "100%" }}>
+      <Sidebar boards={boards} handleBoard={handleBoard} />
+      <main style={{ width: "100%", overflow: "auto" }}>
         <Header />
-        {/* mapped routes */}
         <Routes>
           {boards.map((el) => {
             return (
@@ -81,11 +67,6 @@ const HomePage = () => {
           })}
         </Routes>
       </main>
-      <ModalBoard
-        open={open}
-        onCloseModal={handleClose}
-        handleBoard={handleBoard}
-      />
     </div>
   );
 };
