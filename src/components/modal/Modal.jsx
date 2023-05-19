@@ -32,7 +32,11 @@ const Modal = ({ open = false, reset = () => null, title = "", children }) => {
         >
           {title}
         </DialogTitle>
-        <IconButton>
+        <IconButton
+          onClick={() => {
+            reset();
+          }}
+        >
           <CloseModalIcon />
         </IconButton>
       </Box>

@@ -1,0 +1,68 @@
+$colors: (
+  "red": #e09cb5,
+  "green": #bedbb0,
+  "blue": #8fa1d0,
+  "none": #5b5b5b,
+);
+
+$colorsS: (
+  red-t: #e09cb5,
+  green-t: #bedbb0,
+  blue-t: #8fa1d0,
+  none-t: #5b5b5b,
+);
+
+.wrapper {
+  margin-top: 24px;
+
+  .title {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -0.02em;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 4px;
+  }
+
+  input[type="radio"] {
+    display: none;
+    &:checked + div {
+      label {
+        border-radius: 100%;
+      }
+      span {
+        transform: scale(0.6);
+      }
+      @each $name, $value in $colors {
+        .#{$name} {
+          border: 2px solid $value;
+        }
+      }
+    }
+  }
+
+  label {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: 8px;
+    cursor: pointer;
+    //   &:hover {
+    //     span {
+    //       transform: scale(1.25);
+    //     }
+    //   }
+    span {
+      border-radius: 100%;
+      display: block;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.2s ease-in-out;
+      @each $name, $value in $colorsS {
+        &.#{$name} {
+          background: $value;
+        }
+      }
+    }
+  }
+}
