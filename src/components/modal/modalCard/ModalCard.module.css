@@ -6,3 +6,12 @@
 .buttonCreate2 path {
   stroke: #fff;
 }
+
+.buttonCreate svg {
+  width: 14px;
+  height: 14px;
+}
+
+.buttonCreate path {
+  stroke: #fff;
+}

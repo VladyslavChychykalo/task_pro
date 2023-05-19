@@ -22,21 +22,26 @@ const ModalBoard = ({ handleBoard }) => {
     reset();
   };
 
+  const handleChange = ({ target }) => {
+    setTitleBoard(target.value);
+  };
+
   return (
     <>
       <ButtonCreate
+        isButton={true}
         onClick={() => {
           setOpen(true);
         }}
       />
-      
+
       <Modal title="New Board" open={open} reset={reset}>
         <ul>
           <li>
             <CustomInput
               label="Title"
               value={titleBoard}
-              onChange={setTitleBoard}
+              onChange={handleChange}
             />
           </li>
           <li>

@@ -6,6 +6,7 @@ const CustomInput = ({
   label = "",
   multiline = false,
   options = {},
+  name = "",
 }) => {
   return (
     <TextField
@@ -46,14 +47,13 @@ const CustomInput = ({
       margin="dense"
       id="title"
       label={label}
+      name={name}
       type="text"
       fullWidth
       variant="outlined"
       multiline={multiline}
       value={value}
-      onChange={(e) => {
-        onChange(e.target.value);
-      }}
+      onChange={onChange}
       {...options}
     />
   );

@@ -14,6 +14,10 @@ const ModalColumn = ({ onUpdate }) => {
     setOpen(false);
   };
 
+  const handleChange = ({ target }) => {
+    setColumnName(target.value);
+  };
+
   return (
     <>
       <CustomButton
@@ -45,7 +49,7 @@ const ModalColumn = ({ onUpdate }) => {
         <CustomInput
           label="Title"
           value={columnName}
-          onChange={setColumnName}
+          onChange={handleChange}
         />
         <CustomButton
           onClick={() => {

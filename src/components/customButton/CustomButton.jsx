@@ -5,12 +5,14 @@ const CustomButton = ({
   disabled = false,
   onClick,
   styleOptions = {},
+  type = "button",
 }) => {
   return (
     <Button
       onClick={onClick}
       fullWidth
       // disabled={disabled}
+      type={type}
       sx={{
         fontFamily: "Poppins, sans-serif",
         textTransform: "none",

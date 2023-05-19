@@ -1,17 +1,21 @@
-import { IconButton } from "@mui/material";
+import { IconButton, Box } from "@mui/material";
 import { ReactComponent as PlusIcon } from "../../../assets/icons/plus.svg";
 
 const ButtonCreate = ({
   stylesOptions = {},
   onClick = () => null,
   className,
+  isButton = false,
 }) => {
+  const Element = isButton ? IconButton : Box;
+
   return (
-    <IconButton
+    <Element
       onClick={onClick}
       sx={{
         display: "flex",
         alignItems: "center",
+        justifyContent: "center",
         background: "#BEDBB0",
         minWidth: "40px",
         height: "36px",
@@ -24,7 +28,7 @@ const ButtonCreate = ({
       className={className}
     >
       <PlusIcon />
-    </IconButton>
+    </Element>
   );
 };
 
