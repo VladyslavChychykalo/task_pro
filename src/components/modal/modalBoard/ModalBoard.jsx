@@ -4,12 +4,17 @@ import CustomButton from "../../customButton/CustomButton";
 import ButtonCreate from "../../customButton/buttonCreate/ButtonCreate";
 import ListOfIcons from "./listOfIcons/ListOfIcons";
 import Modal from "../Modal";
+import { ReactComponent as EditIcon } from "../../../assets/icons/editIcon.svg";
 import styles from "./ModalBoard.module.css";
 
-const ModalBoard = ({ handleBoard }) => {
+const ModalBoard = ({
+  initialValue = { activeIndex: 0, titleBoard: "" },
+  handleBoard,
+  type = "create",
+}) => {
   const [open, setOpen] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [titleBoard, setTitleBoard] = useState("");
+  const [activeIndex, setActiveIndex] = useState(initialValue.activeIndex);
+  const [titleBoard, setTitleBoard] = useState(initialValue.titleBoard);
 
   const reset = () => {
     setTitleBoard("");
@@ -28,12 +33,11 @@ const ModalBoard = ({ handleBoard }) => {
 
   return (
     <>
-      <ButtonCreate
-        isButton={true}
-        onClick={() => {
-          setOpen(true);
-        }}
-      />
+      {type === "create" ? (
+        <ButtonCreate isButton={true} onClick={() => setOpen(true)} />
+      ) : (
+        <EditIcon onClick={() => setOpen(true)} />
+      )}
 
       <Modal title="New Board" open={open} reset={reset}>
         <ul>
@@ -63,7 +67,7 @@ const ModalBoard = ({ handleBoard }) => {
             }}
             className={styles.buttonCreate}
           />
-          Create
+          {type === "create" ? "Create" : "Edit"}
         </CustomButton>
       </Modal>
     </>

@@ -43,7 +43,7 @@
   color: #fff;
 }
 
-.activeLabelBoard svg path {
+.activeLabelBoard > svg path {
   stroke-opacity: 1;
 }
 
@@ -70,4 +70,9 @@
   height: 100%;
   right: 0;
   z-index: 0;
+}
+
+.btnsWrapper {
+  display: flex;
+  margin-left: auto;
 }

@@ -5,15 +5,22 @@ import Divider from "@mui/material/Divider";
 import LogoBlock from "../logoBlock/LogoBlock";
 import HelpBlock from "./helpBlock/HelpBlock";
 import ModalBoard from "../modal/modalBoard/ModalBoard";
+import { ReactComponent as RemoveIcon } from "../../assets/icons/removeIcon.svg";
+import { iconsBoard } from "../../utils/mochas";
 
 import styles from "./Sidebar.module.css";
 
 const drawerWidth = 260;
 
-export default function ClippedDrawer({ boards, handleBoard }) {
+export default function ClippedDrawer({
+  boards,
+  handleCreateBoard,
+  handleDeleteBoard,
+  handleUpdateBoard,
+}) {
   const location = useLocation();
   const navigate = useNavigate();
-  
+
   return (
     <Drawer
       variant="permanent"
@@ -53,7 +60,7 @@ export default function ClippedDrawer({ boards, handleBoard }) {
               Create a <br /> new board
             </p>
 
-            <ModalBoard handleBoard={handleBoard} />
+            <ModalBoard handleBoard={handleCreateBoard} />
           </Box>
           <Divider sx={{ border: "1px solid rgba(255, 255, 255, 0.1)" }} />
         </div>
@@ -68,11 +75,28 @@ export default function ClippedDrawer({ boards, handleBoard }) {
                 onClick={() => {
                   navigate(`/${title?.toLowerCase()}`);
                 }}
-                className={`${isActive && styles.activeLabelBoard}`}
+                className={`${isActive && styles.activeLabelBoard} ${
+                  styles.labelWrapper
+                }`}
                 key={id}
               >
                 <Icon />
                 {title}
+                <div className={styles.btnsWrapper}>
+                  <RemoveIcon onClick={() => handleDeleteBoard(id)} />
+                  <ModalBoard
+                    initialValue={{
+                      titleBoard: title,
+                      activeIndex: iconsBoard.findIndex(
+                        (el) => el.icon === Icon
+                      ),
+                    }}
+                    type="edit"
+                    handleBoard={(data) =>
+                      handleUpdateBoard({ boardId: id, newValue: data })
+                    }
+                  />
+                </div>
               </li>
             );
           })}

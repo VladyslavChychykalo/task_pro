@@ -43,7 +43,7 @@ const HomePage = () => {
     );
   };
 
-  const handleBoard = (data) => {
+  const handleCreateBoard = (data) => {
     const { title, iconIndex = 0 } = data;
     setBoards((prev) => {
       return [
@@ -60,9 +60,31 @@ const HomePage = () => {
     });
   };
 
+  const handleDeleteBoard = (boardId) => {
+    const newArr = boards.filter((el) => el.id !== boardId);
+    setBoards(newArr);
+  };
+
+  const handleUpdateBoard = ({ boardId, newValue = {} }) => {
+    const { title, iconIndex = 0 } = newValue;
+    console.log(newValue);
+    const newArr = boards.map((el) =>
+      el.id === boardId
+        ? { ...el, icon: iconsBoard[iconIndex].icon, title }
+        : el
+    );
+
+    setBoards(newArr);
+  };
+
   return (
     <div style={{ display: "flex" }}>
-      <Sidebar boards={boards} handleBoard={handleBoard} />
+      <Sidebar
+        boards={boards}
+        handleCreateBoard={handleCreateBoard}
+        handleDeleteBoard={handleDeleteBoard}
+        handleUpdateBoard={handleUpdateBoard}
+      />
       <main style={{ width: "100%", overflow: "auto" }}>
         <Header />
         <Routes>
