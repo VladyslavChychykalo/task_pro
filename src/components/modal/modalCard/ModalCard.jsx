@@ -13,7 +13,6 @@ const ModalCard = ({
   onUpdateCard = () => null,
 }) => {
   const [open, setOpen] = useState(false);
-
   const [cardValue, setCardValue] = useState(initialValue);
 
   const reset = () => {
@@ -58,7 +57,7 @@ const ModalCard = ({
           Add another card
         </CustomButton>
       ) : (
-        <EditIcon />
+        <EditIcon onClick={() => setOpen(true)} />
       )}
 
       <Modal
@@ -98,7 +97,7 @@ const ModalCard = ({
               }}
               className={styles.buttonCreate}
             />
-            Create
+            {type === "create" ? "Add" : "Edit"}
           </CustomButton>
         </form>
       </Modal>

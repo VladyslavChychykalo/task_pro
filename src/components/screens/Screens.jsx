@@ -54,6 +54,21 @@ const Screens = ({ board, handleUpdateMainBoard }) => {
     handleUpdateInitialBoard(newArr);
   };
 
+  const handleUpdateCard = ({ columnId, cardId, cardValue }) => {
+    const newArr = columns.map((el) =>
+      el.id === columnId
+        ? {
+            ...el,
+            cards: el.cards.map((cardEl) =>
+              cardEl.id === cardId ? { ...cardEl, ...cardValue } : cardEl
+            ),
+          }
+        : el
+    );
+
+    handleUpdateInitialBoard(newArr);
+  };
+
   return (
     <div style={{ color: "#fff" }}>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -92,6 +107,9 @@ const Screens = ({ board, handleUpdateMainBoard }) => {
                       label={label}
                       handleDeleteCard={() =>
                         handleDeleteCard({ columnId, cardId })
+                      }
+                      handleUpdateCard={(cardValue) =>
+                        handleUpdateCard({ columnId, cardId, cardValue })
                       }
                     />
                   );

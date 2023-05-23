@@ -1,8 +1,14 @@
 import { ReactComponent as RemoveIcon } from "../../../assets/icons/removeIcon.svg";
-import { ReactComponent as EditIcon } from "../../../assets/icons/editIcon.svg";
+import ModalCard from "../../modal/modalCard/ModalCard";
 import styles from "./ScreenCard.module.scss";
 
-const ScreenCard = ({ title, description, label, handleDeleteCard }) => {
+const ScreenCard = ({
+  title,
+  description,
+  label,
+  handleDeleteCard,
+  handleUpdateCard,
+}) => {
   return (
     <li>
       <h4>{title}</h4>
@@ -19,7 +25,11 @@ const ScreenCard = ({ title, description, label, handleDeleteCard }) => {
         <div></div>
         <div>
           <RemoveIcon onClick={handleDeleteCard} />
-          <EditIcon />
+          <ModalCard
+            initialValue={{ title, description, label }}
+            type="edit"
+            onUpdateCard={(cardValue) => handleUpdateCard(cardValue)}
+          />
         </div>
       </div>
     </li>
