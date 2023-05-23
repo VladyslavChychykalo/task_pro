@@ -20,6 +20,7 @@ const HomePage = () => {
           columnTitle: "To Do",
           cards: [
             {
+              id: uuidv4(),
               title: "The Watch Spot Design",
               description:
                 "Create a visually stunning and eye-catching watch dial design that embodies our brand's essence of sleek aesthetics and modern elegance. Your design should be unique, innovative, and reflective of the latest trends in watch design.",

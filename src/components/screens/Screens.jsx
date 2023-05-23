@@ -26,7 +26,7 @@ const Screens = ({ board, handleUpdateMainBoard }) => {
     handleUpdateInitialBoard(newArr);
   };
 
-  const handleUpdateCard = ({ columnId, newColumnTitle }) => {
+  const handleUpdateColumn = ({ columnId, newColumnTitle }) => {
     const newArr = columns.map((el) =>
       el.id === columnId ? { ...el, columnTitle: newColumnTitle } : el
     );
@@ -44,6 +44,16 @@ const Screens = ({ board, handleUpdateMainBoard }) => {
     handleUpdateInitialBoard(newArr);
   };
 
+  const handleDeleteCard = ({ columnId, cardId }) => {
+    const newArr = columns.map((el) =>
+      el.id === columnId
+        ? { ...el, cards: el.cards.filter((cardEl) => cardEl.id !== cardId) }
+        : el
+    );
+
+    handleUpdateInitialBoard(newArr);
+  };
+
   return (
     <div style={{ color: "#fff" }}>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -54,19 +64,19 @@ const Screens = ({ board, handleUpdateMainBoard }) => {
         style={{ padding: "48px 24px 36px" }}
       >
         {columns.map((el) => {
-          const { id, columnTitle, cards } = el;
+          const { id: columnId, columnTitle, cards } = el;
 
           return (
             <div className={styles.columnWrapper}>
               <div className={styles.columnTitleBlock}>
                 <h4>{columnTitle}</h4>
                 <div className={styles.controlBtnsWrapper}>
-                  <RemoveIcon onClick={() => handleDeleteColumn(id)} />
+                  <RemoveIcon onClick={() => handleDeleteColumn(columnId)} />
                   <ModalColumn
                     initialValue={columnTitle}
                     type="edit"
                     onUpdate={(newColumnTitle) =>
-                      handleUpdateCard({ columnId: id, newColumnTitle })
+                      handleUpdateColumn({ columnId, newColumnTitle })
                     }
                   />
                 </div>
@@ -74,13 +84,15 @@ const Screens = ({ board, handleUpdateMainBoard }) => {
 
               {/* cardsList */}
               <ul className={styles.cardsWrapper}>
-                {cards.map(({ title, description, label }) => {
-                  console.log("card item", el);
+                {cards.map(({ id: cardId, title, description, label }) => {
                   return (
                     <ScreenCard
                       title={title}
                       description={description}
                       label={label}
+                      handleDeleteCard={() =>
+                        handleDeleteCard({ columnId, cardId })
+                      }
                     />
                   );
                 })}
@@ -88,7 +100,10 @@ const Screens = ({ board, handleUpdateMainBoard }) => {
 
               <ModalCard
                 onUpdateCard={(cardValue) => {
-                  handleCreateCard({ columnId: id, cardValue });
+                  handleCreateCard({
+                    columnId: columnId,
+                    cardValue: { id: uuidv4(), ...cardValue },
+                  });
                 }}
               />
             </div>
