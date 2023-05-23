@@ -85,7 +85,15 @@ const HomePage = () => {
         handleDeleteBoard={handleDeleteBoard}
         handleUpdateBoard={handleUpdateBoard}
       />
-      <main style={{ width: "100%", overflow: "auto" }}>
+      <main
+        style={{
+          width: "100%",
+          overflow: "auto",
+          height: "100vh",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
         <Header />
         <Routes>
           {boards.map((el) => {

@@ -71,14 +71,22 @@ const Screens = ({ board, handleUpdateMainBoard }) => {
   };
 
   return (
-    <div style={{ color: "#fff" }}>
+    <div
+      style={{
+        color: "#fff",
+        display: "flex",
+        flexDirection: "column",
+        height: "100%",
+        overflow: "auto",
+      }}
+    >
       <div className={styles.screenHeader}>
         <FilterIcon />
         <p>Filters</p>
       </div>
       <div
         className={styles.columnsWrapper}
-        style={{ padding: "0px 24px 36px 24px" }}
+        style={{ padding: "0px 24px 36px 24px", flex: "1" }}
       >
         {columns.map((el) => {
           const { id: columnId, columnTitle, cards } = el;
