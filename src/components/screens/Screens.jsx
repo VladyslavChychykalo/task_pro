@@ -3,6 +3,7 @@ import ModalColumn from "../modal/modalColumn/ModalColumn";
 import ModalCard from "../modal/modalCard/ModalCard";
 import ScreenCard from "./ScreenCard/ScreenCard";
 import { ReactComponent as RemoveIcon } from "../../assets/icons/removeIcon.svg";
+import { ReactComponent as FilterIcon } from "../../assets/icons/filterIcon.svg";
 import styles from "./Screens.module.scss";
 
 const Screens = ({ board, handleUpdateMainBoard }) => {
@@ -71,12 +72,13 @@ const Screens = ({ board, handleUpdateMainBoard }) => {
 
   return (
     <div style={{ color: "#fff" }}>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
+      <div className={styles.screenHeader}>
+        <FilterIcon />
         <p>Filters</p>
       </div>
       <div
         className={styles.columnsWrapper}
-        style={{ padding: "48px 24px 36px" }}
+        style={{ padding: "0px 24px 36px 24px" }}
       >
         {columns.map((el) => {
           const { id: columnId, columnTitle, cards } = el;

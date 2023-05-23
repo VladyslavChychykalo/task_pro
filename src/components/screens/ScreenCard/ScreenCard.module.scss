@@ -1,10 +1,83 @@
-.labelText {
-  display: flex;
-  align-items: center;
-  font-weight: 400;
-  font-size: 10px;
-  line-height: 15px;
-  letter-spacing: -0.02em;
+.cardWrapper {
+  & > h4 {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+  }
+
+  & > p {
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.02em;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 8px;
+  }
+
+  &.status-border-low {
+    position: relative;
+
+    &::before {
+      content: "";
+      width: 4px;
+      position: absolute;
+      background: #8fa1d0;
+      border-radius: 4px 0px 0px 4px;
+      top: 0;
+      height: 100%;
+      left: 0;
+      z-index: 0;
+    }
+  }
+
+  &.status-border-medium {
+    position: relative;
+
+    &::before {
+      content: "";
+      width: 4px;
+      position: absolute;
+      background: #e09cb5;
+      border-radius: 4px 0px 0px 4px;
+      top: 0;
+      height: 100%;
+      left: 0;
+      z-index: 0;
+    }
+  }
+
+  &.status-border-high {
+    position: relative;
+
+    &::before {
+      content: "";
+      width: 4px;
+      position: absolute;
+      background: #bedbb0;
+      border-radius: 4px 0px 0px 4px;
+      top: 0;
+      height: 100%;
+      left: 0;
+      z-index: 0;
+    }
+  }
+
+  &.status-border-none {
+    position: relative;
+
+    &::before {
+      content: "";
+      width: 4px;
+      position: absolute;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 4px 0px 0px 4px;
+      top: 0;
+      height: 100%;
+      left: 0;
+      z-index: 0;
+    }
+  }
 }
 
 .status-low {
@@ -33,4 +106,41 @@
   width: 12px;
   background: rgba(255, 255, 255, 0.3);
   border-radius: 100%;
+}
+
+.priorityBlock {
+  p:first-of-type {
+    font-weight: 400;
+    font-size: 8px;
+    line-height: 12px;
+    letter-spacing: -0.02em;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 5px;
+  }
+}
+
+.labelText {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 15px;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  text-transform: capitalize;
+
+  div {
+    margin-right: 4px;
+  }
+}
+
+.additionalBlockWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btnsWrapper {
+  display: flex;
+  gap: 10px;
 }
