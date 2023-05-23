@@ -1,6 +1,7 @@
 .wrapper {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 68px;
   width: 100%;
   background-color: #161616;
@@ -13,4 +14,18 @@
   font-size: 18px;
   line-height: 27px;
   letter-spacing: -0.02em;
+}
+
+.userInfoBlock {
+  display: flex;
+  align-items: center;
+  color: #fff;
+
+  & > p {
+    margin-right: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: -0.02em;
+  }
 }

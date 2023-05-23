@@ -31,11 +31,11 @@ $colorsS: (
         border-radius: 100%;
       }
       span {
-        transform: scale(0.6);
+        transform: scale(0.7);
       }
       @each $name, $value in $colors {
         .#{$name} {
-          border: 2px solid $value;
+          border: 1px solid $value;
         }
       }
     }

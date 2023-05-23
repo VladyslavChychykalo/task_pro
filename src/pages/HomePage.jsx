@@ -17,14 +17,13 @@ const HomePage = () => {
       columns: [
         {
           id: uuidv4(),
-          //   boardId: "a",
           columnTitle: "To Do",
           cards: [
             {
-              cardName: "The Watch Spot Design",
+              title: "The Watch Spot Design",
               description:
                 "Create a visually stunning and eye-catching watch dial design that embodies our brand's essence of sleek aesthetics and modern elegance. Your design should be unique, innovative, and reflective of the latest trends in watch design.",
-              priority: "none",
+              label: "none",
               deadLine: "12.02.2024",
             },
           ],
@@ -32,6 +31,16 @@ const HomePage = () => {
       ],
     },
   ]);
+
+  // const [activeBoardId, setActiveBoardId] = useState(null);
+
+  const handleUpdateMainBoard = (boardId, newColumns) => {
+    setBoards((prev) =>
+      prev.map((el) =>
+        boardId !== el.id ? el : { ...el, columns: [...newColumns] }
+      )
+    );
+  };
 
   const handleBoard = (data) => {
     const { title, iconIndex = 0 } = data;
@@ -61,7 +70,12 @@ const HomePage = () => {
               <Route
                 key={el.id}
                 path={`/${el?.title?.toLowerCase()}`}
-                element={<Screens board={el} />}
+                element={
+                  <Screens
+                    board={el}
+                    handleUpdateMainBoard={handleUpdateMainBoard}
+                  />
+                }
               />
             );
           })}

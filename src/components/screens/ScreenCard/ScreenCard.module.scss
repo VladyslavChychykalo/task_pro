@@ -1,0 +1,36 @@
+.labelText {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 15px;
+  letter-spacing: -0.02em;
+}
+
+.status-low {
+  height: 12px;
+  width: 12px;
+  background-color: #8fa1d0;
+  border-radius: 100%;
+}
+
+.status-medium {
+  height: 12px;
+  width: 12px;
+  background-color: #e09cb5;
+  border-radius: 100%;
+}
+
+.status-high {
+  height: 12px;
+  width: 12px;
+  background-color: #bedbb0;
+  border-radius: 100%;
+}
+
+.status-none {
+  height: 12px;
+  width: 12px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 100%;
+}

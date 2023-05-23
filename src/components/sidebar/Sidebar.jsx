@@ -13,6 +13,7 @@ const drawerWidth = 260;
 export default function ClippedDrawer({ boards, handleBoard }) {
   const location = useLocation();
   const navigate = useNavigate();
+  
   return (
     <Drawer
       variant="permanent"

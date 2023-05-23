@@ -4,11 +4,17 @@
   overflow: scroll;
 }
 
+.columnWrapper {
+  width: 100%;
+  min-width: 334px;
+  max-width: 334px;
+}
+
 .columnTitleBlock {
   background: #121212;
   border-radius: 8px;
   height: 56px;
-  min-width: 334px;
+  width: 100%;
   color: #fff;
   display: flex;
   justify-content: space-between;
@@ -21,4 +27,22 @@
   font-size: 14px;
   line-height: 21px;
   letter-spacing: -0.02em;
+}
+
+.cardsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 14px;
+
+  li {
+    background: #121212;
+    border-radius: 8px;
+    padding: 14px 20px 14px 24px;
+  }
+}
+
+.controlBtnsWrapper {
+  display: flex;
+  gap: 10px;
 }

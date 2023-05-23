@@ -1,11 +1,11 @@
-import styles from "./Header.module.css";
+import styles from "./Header.module.scss";
 import profilePhoto from "../../assets/images/profilePhoto.png";
 
 const Header = ({ name = "Ivetta", photo = profilePhoto }) => {
   return (
     <div className={styles.wrapper}>
       <h2 className={styles.headerTitle}>Project office</h2>
-      <div>
+      <div className={styles.userInfoBlock}>
         {/* <p></p> */}
         <p>Ivetta</p>
         <img src={photo} alt="Profile" />

@@ -16,6 +16,7 @@
 }
 
 .boardsLinksList {
+  overflow: auto;
   margin-top: 40px;
   text-decoration: none;
   color: rgba(255, 255, 255, 0.5);
